@@ -1,5 +1,0 @@
-{
-  "name": "bienbansanxuat",
-  "description": "An application to create, manage, and generate reports for production confirmations with customers. It includes data entry for sample details, image uploads, customer signatures, and a reporting module to search and download confirmations as PDFs.",
-  "requestFramePermissions": []
-}
