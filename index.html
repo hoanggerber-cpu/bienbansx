@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biên Bản Sản Xuất - Bảng Ổn Định</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+  <h1>Biên Bản Sản Xuất — Bảng Ổn Định (GitHub Pages)</h1>
+  <p>Quản lý biên bản: tìm kiếm, lọc, sắp xếp, thêm/sửa/xoá, nhập/xuất — chạy thuần client (localStorage).</p>
+</header>
+
+<section class="toolbar">
+  <div class="filters">
+    <input id="searchCustomer" placeholder="Tìm khách hàng..." />
+    <input id="searchProduct" placeholder="Tìm mã/ tên sản phẩm..." />
+    <label>Ngày SX từ <input type="date" id="startDate"></label>
+    <label>đến <input type="date" id="endDate"></label>
+    <button id="btnClearFilter">Xoá lọc</button>
+  </div>
+  <div class="io">
+    <input type="file" id="fileImport" accept=".json,.csv"/>
+    <button id="btnExportJSON">Xuất JSON</button>
+    <button id="btnExportCSV">Xuất CSV</button>
+    <button id="btnAdd">Thêm biên bản</button>
+    <button id="btnReset">Khôi phục dữ liệu mẫu</button>
+  </div>
+</section>
+
+<section>
+  <div class="table-wrap">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th data-key="id">ID</th>
+          <th data-key="productCodeName">Mã/Tên SP</th>
+          <th data-key="customerName">Khách hàng</th>
+          <th data-key="sampleSewingDate">Ngày may mẫu</th>
+          <th data-key="productionDate">Ngày sản xuất</th>
+          <th data-key="sampleEditDetails">Chỉnh sửa mẫu</th>
+          <th data-key="originalForm">Form gốc</th>
+          <th data-key="sampleImage">Ảnh Mẫu</th>
+          <th data-key="patternImage">Ảnh Rập</th>
+          <th data-key="agreedToTerms">Đã xác nhận</th>
+          <th data-key="signature">Chữ ký</th>
+          <th data-key="confirmationDate">Ngày xác nhận</th>
+          <th data-key="reportCreator">Người tạo</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<dialog id="editDialog">
+  <form method="dialog" id="editForm">
+    <h3 id="dialogTitle">Thêm/Sửa biên bản</h3>
+    <div class="grid">
+      <label>ID<input name="id" required></label>
+      <label>Mã/Tên SP<input name="productCodeName" required></label>
+      <label>Khách hàng<input name="customerName" required></label>
+      <label>Ngày may mẫu<input name="sampleSewingDate" type="date"></label>
+      <label>Ngày sản xuất<input name="productionDate" type="date"></label>
+      <label>Chỉnh sửa mẫu<textarea name="sampleEditDetails" rows="2"></textarea></label>
+      <label>Form gốc<input name="originalForm"></label>
+      <label>Ảnh Mẫu (URL/base64)<textarea name="sampleImage" rows="2"></textarea></label>
+      <label>Ảnh Rập (URL/base64)<textarea name="patternImage" rows="2"></textarea></label>
+      <label>Đã xác nhận
+        <select name="agreedToTerms">
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </label>
+      <label>Chữ ký (URL/base64)<textarea name="signature" rows="2"></textarea></label>
+      <label>Ngày xác nhận<input name="confirmationDate" type="date"></label>
+      <label>Người tạo<input name="reportCreator"></label>
+    </div>
+    <menu>
+      <button value="cancel">Huỷ</button>
+      <button id="btnSave" value="default">Lưu</button>
+    </menu>
+  </form>
+</dialog>
+
+<template id="rowTemplate">
+  <tr>
+    <td data-key="id"></td>
+    <td data-key="productCodeName"></td>
+    <td data-key="customerName"></td>
+    <td data-key="sampleSewingDate"></td>
+    <td data-key="productionDate"></td>
+    <td data-key="sampleEditDetails" class="wrap"></td>
+    <td data-key="originalForm"></td>
+    <td data-key="sampleImage" class="media"></td>
+    <td data-key="patternImage" class="media"></td>
+    <td data-key="agreedToTerms"></td>
+    <td data-key="signature" class="media"></td>
+    <td data-key="confirmationDate"></td>
+    <td data-key="reportCreator"></td>
+    <td class="actions">
+      <button class="edit">Sửa</button>
+      <button class="del">Xoá</button>
+    </td>
+  </tr>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
