@@ -1,0 +1,17 @@
+{
+  "name": "Production Confirmation App",
+  "short_name": "ProdConfirm",
+  "description": "An application to create, manage, and generate reports for production confirmations with customers.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F9FAFB",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
